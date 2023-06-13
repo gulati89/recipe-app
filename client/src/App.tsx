@@ -8,7 +8,7 @@ import Snackbar from 'components/@extended/Snackbar';
 import Notistack from 'components/third-party/Notistack';
 
 // auth-provider
-import { FirebaseProvider as AuthProvider } from 'contexts/FirebaseContext';
+import { JWTProvider as AuthProvider } from 'contexts/JWTContext';
 
 // ==============================|| APP - THEME, ROUTER, LOCAL  ||============================== //
 

@@ -12,8 +12,10 @@ const MaintenanceError500 = Loadable(lazy(() => import('pages/maintenance/500'))
 const MaintenanceUnderConstruction = Loadable(lazy(() => import('pages/maintenance/under-construction')));
 const MaintenanceComingSoon = Loadable(lazy(() => import('pages/maintenance/coming-soon')));
 
-// render - sample page
-const SamplePage = Loadable(lazy(() => import('pages/extra-pages/sample-page')));
+// render - applications
+const RecipeList = Loadable(lazy(() => import('pages/recipe-app/recipe-list')));
+const CreateRecipe = Loadable(lazy(() => import('pages/recipe-app/create-recipe')));
+const RecipeDetails = Loadable(lazy(() => import('pages/recipe-app/recipe-details')));
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -29,8 +31,16 @@ const MainRoutes = {
       ),
       children: [
         {
-          path: 'sample-page',
-          element: <SamplePage />
+          path: 'recipes',
+          element: <RecipeList />
+        },
+        {
+          path: 'createrecipe',
+          element: <CreateRecipe />
+        },
+        {
+          path: 'recipedetails/:id',
+          element: <RecipeDetails />
         }
       ]
     },

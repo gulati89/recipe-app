@@ -29,13 +29,13 @@ import AnimateButton from 'components/@extended/AnimateButton';
 // assets
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
 
-// ============================|| FIREBASE - LOGIN ||============================ //
+// ============================|| JWT - LOGIN ||============================ //
 
 const AuthLogin = () => {
   const [checked, setChecked] = React.useState(false);
   const [capsWarning, setCapsWarning] = React.useState(false);
 
-  const { isLoggedIn, firebaseEmailPasswordSignIn } = useAuth();
+  const { isLoggedIn, login } = useAuth();
   const scriptedRef = useScriptRef();
 
   const [showPassword, setShowPassword] = React.useState(false);
@@ -59,8 +59,8 @@ const AuthLogin = () => {
     <>
       <Formik
         initialValues={{
-          email: 'info@codedthemes.com',
-          password: '123456',
+          email: 'jatin.gulati@admin.com',
+          password: 'admin@12345',
           submit: null
         }}
         validationSchema={Yup.object().shape({
@@ -69,19 +69,11 @@ const AuthLogin = () => {
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           try {
-            await firebaseEmailPasswordSignIn(values.email, values.password).then(
-              () => {
-                // WARNING: do not set any formik state here as formik might be already destroyed here. You may get following error by doing so.
-                // Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application.
-                // To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.
-                // github issue: https://github.com/formium/formik/issues/2430
-              },
-              (err: any) => {
-                setStatus({ success: false });
-                setErrors({ submit: err.message });
-                setSubmitting(false);
-              }
-            );
+            await login(values.email, values.password);
+            if (scriptedRef.current) {
+              setStatus({ success: true });
+              setSubmitting(false);
+            }
           } catch (err: any) {
             console.error(err);
             if (scriptedRef.current) {

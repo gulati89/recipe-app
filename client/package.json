@@ -15,6 +15,7 @@
     "@mui/system": "^5.10.9",
     "@mui/x-date-pickers": "^5.0.4",
     "@mui/x-date-pickers-pro": "^5.0.10",
+    "@mui/icons-material": "^5.8.3",
     "@reduxjs/toolkit": "^1.8.6",
     "axios": "^1.1.2",
     "buffer": "^6.0.3",
@@ -44,7 +45,8 @@
     "util": "^0.12.5",
     "uuid": "^9.0.0",
     "web-vitals": "^2.1.4",
-    "yup": "^0.32.11"
+    "yup": "^0.32.11",
+    "jwt-decode": "^3.1.2"
   },
   "scripts": {
     "start": "react-app-rewired start",
