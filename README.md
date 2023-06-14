@@ -18,12 +18,19 @@ My Recipes offers a variety of features, including:
 Here are a few screenshots of the My Recipes app in action:
 
 #### Login page
+![loginPage](https://github.com/gulati89/recipe-app/assets/403121/4d2700c8-a8e1-4040-9801-078bd2d03bad)
+
+#### Signup page
+![SignupPage](https://github.com/gulati89/recipe-app/assets/403121/f4ff5de7-259c-4cf8-bb41-8139c2c21a9c)
 
 #### All recipes page
+![AllRecipesPage](https://github.com/gulati89/recipe-app/assets/403121/f824fa27-18fd-493c-b29c-f297da33616a)
 
 #### Recipe details page
+![RecipeDetailsPage](https://github.com/gulati89/recipe-app/assets/403121/c271b7b0-e91e-4190-aeea-574fad364bb9)
 
-#### Saved recipes page
+#### Create recipe page
+![CreateRecipePage](https://github.com/gulati89/recipe-app/assets/403121/3eae479c-917a-41ba-a660-21c82018688d)
 
 
 ## Technologies Used
