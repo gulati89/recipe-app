@@ -13,7 +13,7 @@ const router = express.Router();
 router.route('/recipes').get(getAllRecipes);
 router.route('/recipe_details/:id').get(getRecipeDetail);
 router.route('/create_recipe').post(createRecipe);
-router.route('/update_recipe/:id').patch(updateRecipe);
+router.route('/update_recipe').patch(updateRecipe);
 router.route('/delete_recipe/:id').delete(deleteRecipe);
 
 export default router;

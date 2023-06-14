@@ -83,13 +83,16 @@ const createRecipe = async (req, res) => {
             photo: photoUrl.url,
             creator: user._id,
         });
-
+       
         user.allRecipes.push(newRecipe._id);
         await user.save({ session });
 
         await session.commitTransaction();
 
-        res.status(200).json({ message: "Recipe created successfully" });
+        const data = {
+            _id: newRecipe._id , title, description, estimateTime, servings, steps, tips, ingredients, photo
+        }
+        res.status(200).json({ data, message: "Recipe created successfully" });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -97,8 +100,8 @@ const createRecipe = async (req, res) => {
 
 const updateRecipe = async (req, res) => {
     try {
-        const { id } = req.params;
         const {
+            id,
             title,
             description,
             estimateTime,
@@ -129,7 +132,10 @@ const updateRecipe = async (req, res) => {
                 photo: photoUrl.url,
             }
         );
-        res.status(200).json({ message: "Recipe updated successfully" });
+        const data = {
+            _id: id, title, description, estimateTime, servings, steps, tips, ingredients, photo
+        }
+        res.status(200).json({ data, message: "Recipe updated successfully" });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -141,7 +147,6 @@ const deleteRecipe = async (req, res) => {
         const recipeToDelete = await Recipe.findById({ _id: id }).populate(
             "creator"
         );
-
         // console.log(typeof recipeToDelete);
 
         if (!recipeToDelete) throw new Error("Recipe not found");
@@ -151,8 +156,8 @@ const deleteRecipe = async (req, res) => {
 
         await Recipe.deleteOne({ _id: id }).session(session);
         recipeToDelete.creator.allRecipes.pull(recipeToDelete);
-
         await recipeToDelete.creator.save({ session });
+        
         await session.commitTransaction();
 
         res.status(200).json({ message: "Recipe deleted successfully" });

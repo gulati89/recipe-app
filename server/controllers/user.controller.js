@@ -60,7 +60,8 @@ const userLogin = async (req, res) => {
         accessToken: token,
         user: {
           firstName: user.firstName,
-          lastName: user.lastName
+          lastName: user.lastName,
+          email: user.email
         },
       });
     });

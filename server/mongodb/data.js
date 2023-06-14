@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 export const creatorId = new mongoose.Types.ObjectId(
-    "6408e87d7663c77ffe4a01c9"
+    "64884eb9d9068630ef8f5521"
 );
 
 export const recipes = [

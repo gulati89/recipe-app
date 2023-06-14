@@ -1,7 +1,6 @@
-import mongoose from "mongoose";
 import Recipe from "./models/recipe.js";
 import User from "./models/user.js";
-import { recipes, creatorId } from "./data.js";
+import { recipes } from "./data.js";
 
 import * as dotenv from "dotenv";
 import { v2 as cloudinary } from "cloudinary";
@@ -33,7 +32,7 @@ const insertDataset = async () => {
                 const insertedRecipe = result.upserted
                     ? result.upserted[0]
                     : await Recipe.findOne(filter);
-
+                
                 if (!insertedRecipe) {
                     // The recipe could not be found or inserted
                     return;

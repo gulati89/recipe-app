@@ -16,6 +16,7 @@ const MaintenanceComingSoon = Loadable(lazy(() => import('pages/maintenance/comi
 const RecipeList = Loadable(lazy(() => import('pages/recipe-app/recipe-list')));
 const CreateRecipe = Loadable(lazy(() => import('pages/recipe-app/create-recipe')));
 const RecipeDetails = Loadable(lazy(() => import('pages/recipe-app/recipe-details')));
+const UpdateRecipe = Loadable(lazy(() => import('pages/recipe-app/update-recipe')));
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -41,6 +42,10 @@ const MainRoutes = {
         {
           path: 'recipedetails/:id',
           element: <RecipeDetails />
+        },
+        {
+          path: 'updaterecipe',
+          element: <UpdateRecipe />
         }
       ]
     },

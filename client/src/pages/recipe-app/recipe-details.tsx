@@ -1,5 +1,6 @@
-import { useEffect, Fragment } from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect, Fragment, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 // material-ui
 import { Typography, Box, Stack, IconButton, Grid, Button } from '@mui/material';
@@ -12,9 +13,13 @@ import { Ingredient } from 'types/recipe';
 import MainCard from 'components/MainCard';
 import AnimateButton from 'components/@extended/AnimateButton';
 import Loader from 'components/Loader';
+import { getRecipeDelete } from 'store/reducers/recipe';
+import { openSnackbar } from 'store/reducers/snackbar';
 
 const RecipeDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
   const { recipe } = useSelector((state) => state.recipe);
 
   useEffect(() => {
@@ -22,9 +27,29 @@ const RecipeDetails = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const handleDelete = () => {
+    setIsLoading(true);
+    dispatch(getRecipeDelete(id)).then(() => {
+      dispatch(
+        openSnackbar({
+          open: true,
+          message: 'Recipe deleted successfully',
+          anchorOrigin: { vertical: 'top', horizontal: 'right' },
+          variant: 'alert',
+          alert: {
+            color: 'success'
+          },
+          close: false
+        })
+      );
+      setIsLoading(false);
+      navigate('/recipes', { replace: true });
+    });
+  };
+
   return (
     <MainCard sx={{ borderRadius: '15px', p: '20px', bgColor: '#fcfcfc', width: '100%' }}>
-      {(!recipe || (recipe && recipe._id !== id)) && <Loader />}
+      {(!recipe || (recipe && recipe._id !== id) || isLoading) && <Loader />}
       {recipe && recipe._id === id && (
         <Fragment>
           <Typography fontSize={25} fontWeight={700} color="#11142d">
@@ -42,12 +67,12 @@ const RecipeDetails = () => {
             </Grid>
             <Grid item sm={2} p="15px" display="flex" flexDirection="column" gap={2}>
               <AnimateButton>
-                <Button title="Edit" fullWidth variant="contained">
+                <Button component={Link} title="Edit" fullWidth variant="contained" to="/updaterecipe">
                   <Edit />
                 </Button>
               </AnimateButton>
               <AnimateButton>
-                <Button title="Delete" fullWidth variant="contained">
+                <Button title="Delete" fullWidth variant="contained" onClick={handleDelete}>
                   <Delete />
                 </Button>
               </AnimateButton>
