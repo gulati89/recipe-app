@@ -1,6 +1,7 @@
 import { apiurls } from './apiurls';
 import axios from 'utils/axios';
-const baseURL = 'http://localhost:8080/api/v1/';
+//const baseURL = 'http://localhost:8080/api/v1/';
+const baseURL = 'https://my-recipes-service.onrender.com/api/v1/';
 
 const getUrl = (pathname: string) => {
   return baseURL + apiurls.paths[pathname as keyof Object] || '';
