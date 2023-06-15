@@ -1,7 +1,7 @@
 # recipe-app
 My Recipes is a full-stack recipe sharing application that enables users to share their favorite recipes, browse others' recipes and create own recipes. Built with TypeScript and React theme, My recipes is a great example of a modern, performant, and scalable MERN stack application.
 
-You can visit the deployed version of My Recipes [https://my-recipes.netlify.app](In Progress). Please note that the backend of the application is hosted on render.com's free tier, which shuts down when not in use. As a result, the application might take a few minutes to activate if it hasn't been used in a while.
+You can visit the deployed version of My Recipes [https://my-recipes-bake.netlify.app] (In Progress). Please note that the backend of the application is hosted on render.com's free tier, which shuts down when not in use. As a result, the application might take a few minutes to activate if it hasn't been used in a while.
 
 ## Features
 
@@ -92,7 +92,7 @@ If you want to run it on your local machine, please follow the steps below.
 
 
 5.  Change the base url in /client/src/App.tsx
-    -  Search and modify all instances of https://my-recipes-backend.onrender.com to your localhost, for example, http://localhost:8080
+    -  Search and modify all instances of https://my-recipes-service.onrender.com to your localhost, for example, http://localhost:8080
 
 6.  Start the backend server
 
