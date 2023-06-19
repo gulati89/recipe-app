@@ -24,13 +24,13 @@ Here are a few screenshots of the My Recipes app in action:
 ![SignupPage](https://github.com/gulati89/recipe-app/assets/403121/f4ff5de7-259c-4cf8-bb41-8139c2c21a9c)
 
 #### All recipes page
-![AllRecipesPage](https://github.com/gulati89/recipe-app/assets/403121/f824fa27-18fd-493c-b29c-f297da33616a)
+![all-recipes](https://github.com/gulati89/recipe-app/assets/403121/d473da8b-0ab8-487c-9258-03e2f2d3e273)
 
 #### Recipe details page
-![RecipeDetailsPage](https://github.com/gulati89/recipe-app/assets/403121/c271b7b0-e91e-4190-aeea-574fad364bb9)
+![recipe-details](https://github.com/gulati89/recipe-app/assets/403121/a1ea4a42-946f-4c6c-87a4-5cb0be70c206)
 
 #### Create recipe page
-![CreateRecipePage](https://github.com/gulati89/recipe-app/assets/403121/3eae479c-917a-41ba-a660-21c82018688d)
+![create-recipe](https://github.com/gulati89/recipe-app/assets/403121/0eefe5d1-3b9b-491a-9f29-94fbf1d5ee39)
 
 
 ## Technologies Used
