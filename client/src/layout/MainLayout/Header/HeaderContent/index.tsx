@@ -1,6 +1,6 @@
 // material-ui
 import { Theme } from '@mui/material/styles';
-import { Box, useMediaQuery } from '@mui/material';
+import { Box, useMediaQuery, Typography } from '@mui/material';
 
 // project import
 import Profile from './Profile';
@@ -20,7 +20,10 @@ const HeaderContent = () => {
   return (
     <>
       {menuOrientation === LAYOUT_CONST.HORIZONTAL_LAYOUT && !downLG && <DrawerHeader open={true} />}
-      <Box sx={{ width: '100%', ml: 1 }} />
+      <Typography sx={{ width: '300px', ml: 1, color: '#FF4D00', fontSize: '1.2rem', fontFamily: 'system-ui', fontWeight: 800 }}>
+        My Recipes Cookbook
+      </Typography>
+      <Box sx={{ width: '90%', ml: 1 }} />
       <Profile />
     </>
   );
